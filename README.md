@@ -40,6 +40,8 @@ This MVP stores tasks in React Context while the app is open. Tasks remain when 
 
 ## Deployment
 
+Live application: https://student-task-planner-nine.vercel.app/
+
 Import this GitHub repository into Vercel as a Vite project. Use the repository root, `npm run build`, and the `dist` output directory. The `vercel.json` rewrite lets React Router open URLs such as `/tasks` directly. No environment variables are needed for the public holidays API.
 
 ## Future Improvements
