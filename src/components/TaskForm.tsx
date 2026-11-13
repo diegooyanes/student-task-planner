@@ -1,11 +1,19 @@
 import { useState } from 'react'
+import type { FormEvent } from 'react'
+import type { Task, TaskInput } from '../types'
 
-function TaskForm({ initialTask, onSubmit, onCancel }) {
+interface TaskFormProps {
+  initialTask?: Task
+  onSubmit: (task: TaskInput) => void
+  onCancel?: () => void
+}
+
+function TaskForm({ initialTask, onSubmit, onCancel }: TaskFormProps) {
   const [title, setTitle] = useState(initialTask?.title || '')
   const [description, setDescription] = useState(initialTask?.description || '')
   const [dueDate, setDueDate] = useState(initialTask?.dueDate || '')
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     onSubmit({ title: title.trim(), description: description.trim(), dueDate })
     if (!initialTask) {

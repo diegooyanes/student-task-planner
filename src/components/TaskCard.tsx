@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import type { Task } from '../types'
 
-function TaskCard({ task }) {
+function TaskCard({ task }: { task: Task }) {
   return (
     <article className="task-card">
       <div className="task-card-top">

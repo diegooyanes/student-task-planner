@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import { useTaskContext } from '../context/useTaskContext'
 import TaskCard from '../components/TaskCard'
 import { getPublicHolidays } from '../services/holidayService'
+import type { Holiday } from '../types'
 
 function Home() {
   const { tasks } = useTaskContext()
-  const [holidays, setHolidays] = useState([])
+  const [holidays, setHolidays] = useState<Holiday[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [retryCount, setRetryCount] = useState(0)

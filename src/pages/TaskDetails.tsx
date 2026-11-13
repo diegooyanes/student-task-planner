@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useTaskContext } from '../context/useTaskContext'
 import TaskForm from '../components/TaskForm'
+import type { TaskInput } from '../types'
 
 function TaskDetails() {
   const { taskId } = useParams()
@@ -13,14 +14,15 @@ function TaskDetails() {
   if (!task) {
     return <div className="page-heading"><h1>Task not found</h1><Link to="/tasks">Back to Tasks</Link></div>
   }
+  const selectedTaskId = task.id
 
-  function saveTask(changes) {
-    updateTask(taskId, changes)
+  function saveTask(changes: TaskInput) {
+    updateTask(selectedTaskId, changes)
     setEditing(false)
   }
 
   function removeTask() {
-    deleteTask(taskId)
+    deleteTask(selectedTaskId)
     navigate('/tasks')
   }
 
@@ -37,7 +39,7 @@ function TaskDetails() {
           <p><strong>Status:</strong> {task.completed ? 'Completed' : 'Pending'}</p>
           <div className="form-actions">
             <button type="button" onClick={() => setEditing(true)}>Edit task</button>
-            <button type="button" onClick={() => toggleTask(taskId)}>
+            <button type="button" onClick={() => toggleTask(selectedTaskId)}>
               {task.completed ? 'Mark pending' : 'Mark completed'}
             </button>
             <button type="button" className="danger-button" onClick={removeTask}>Delete task</button>

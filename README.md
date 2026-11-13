@@ -4,13 +4,13 @@ Student Task Planner is a frontend MVP for entering assignments from Rize, Canva
 
 ## Technologies
 
-Vite, React, React Router, CSS, Nager.Date, Vitest, and React Testing Library.
+Vite, React, React Router, TypeScript, CSS, Nager.Date, Vitest, and React Testing Library.
 
 ## Run locally
 
 1. Run `npm install` to install the project dependencies.
 2. Run `npm run dev` to start the local Vite server, then open the URL it prints.
-3. Run `npm test` for the six basic tests, `npm run lint` for code checks, or `npm run build` to create the production build.
+3. Run `npm test` for the six basic tests, `npm run typecheck` for prop and state type checks, `npm run lint` for JavaScript checks, or `npm run build` to type-check and create the production build.
 
 ## Pages
 
@@ -22,7 +22,7 @@ Vite, React, React Router, CSS, Nager.Date, Vitest, and React Testing Library.
 
 ## Holidays API
 
-Home uses `fetch` in `src/services/holidayService.js` to call the public Nager.Date `/api/v3/PublicHolidays/{year}/US` endpoint. It requests the next year if needed to show three upcoming dates. The holiday section shows loading, empty, and error states, and has a Retry button. Tasks still work if this request fails. No API key is required.
+Home uses `fetch` in `src/services/holidayService.ts` to call the public Nager.Date `/api/v3/PublicHolidays/{year}/US` endpoint. It requests the next year if needed to show three upcoming dates. The holiday section shows loading, empty, and error states, and has a Retry button. Tasks still work if this request fails. No API key is required.
 
 ## Screenshots
 
