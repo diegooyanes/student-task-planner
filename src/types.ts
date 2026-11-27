@@ -6,6 +6,7 @@ export interface TaskInput {
 
 export interface Task extends TaskInput {
   id: string
+  userId?: string
   completed: boolean
 }
 
